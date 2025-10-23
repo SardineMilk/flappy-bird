@@ -2,7 +2,6 @@ input.onButtonPressed(Button.A, function () {
     if (bird >= 0) {
         bird += -1
     }
-    music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.InBackground)
 })
 function startTheGame () {
     let i: number;
@@ -15,6 +14,7 @@ spawnPipe = 1
     pipePositionOdd = 0
     running = 1
     while (running == 1) {
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.InBackground)
         basic.clearScreen()
         speed += 0 - 1
         if (spawnPipe == 1) {
@@ -61,7 +61,6 @@ input.onButtonPressed(Button.B, function () {
     if (bird < 4) {
         bird += 1
     }
-    music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.InBackground)
 })
 let score = 0
 let running = 0
