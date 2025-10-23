@@ -16,7 +16,7 @@ def startTheGame():
         basic.clear_screen()
         bird += 1
         led.plot_brightness(0, bird, 255)
-        speed += 0 - speed / 1000
+        speed += 0 - speed / 1000000000
         if bird > 5:
             bird = 2
 
@@ -25,6 +25,14 @@ def startTheGame():
             pipes.append(randint(0, 3))
         else:
             spawnPipe = 1
+        
+        if (pipes.length > 3):
+            pipes.remove_at(0)
+
+        if pipePositionOdd == 1:
+            pipePositionOdd = 0
+        else:
+            pipePositionOdd = 1
 
         for i in range(pipes.length):
             pipex = (i*2) + pipePositionOdd
@@ -36,7 +44,7 @@ def startTheGame():
             led.plot(pipex, 4)
             led.unplot(pipex, pipey)
             led.unplot(pipex, pipey+1)
-        if (pipes.length > 3
+
 pipePositionOdd = 0
 pipes: List[number] = []
 speed = 0

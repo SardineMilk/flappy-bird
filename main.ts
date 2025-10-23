@@ -16,7 +16,7 @@ function startTheGame() {
         basic.clearScreen()
         bird += 1
         led.plotBrightness(0, bird, 255)
-        speed += 0 - speed / 1000
+        speed += 0 - speed / 1000000000
         if (bird > 5) {
             bird = 2
         }
@@ -26,6 +26,16 @@ function startTheGame() {
             pipes.push(randint(0, 3))
         } else {
             spawnPipe = 1
+        }
+        
+        if (pipes.length > 3) {
+            pipes.removeAt(0)
+        }
+        
+        if (pipePositionOdd == 1) {
+            pipePositionOdd = 0
+        } else {
+            pipePositionOdd = 1
         }
         
         for (let i = 0; i < pipes.length; i++) {
